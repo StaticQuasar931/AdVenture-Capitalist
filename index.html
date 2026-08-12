@@ -54,105 +54,123 @@
   </script>
   <style>
     :root{
-      --sq-brand:#5ee1ff;
-      --sq-glow:0 0 12px rgba(94,225,255,.65), 0 0 32px rgba(155,255,183,.35);
-      --sq-shadow:0 10px 30px rgba(0,0,0,.4);
+      --brand:#5ee1ff;
+      --glow:0 0 12px rgba(94,225,255,.65), 0 0 32px rgba(155,255,183,.35);
+      --shadow:0 10px 30px rgba(0,0,0,.4);
     }
 
-    .sq-static-menu,
-    .sq-visual-card{
+    #staticMenu{
       position:fixed;
-      z-index:100000;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    }
-
-    .sq-static-menu{
-      top:12px;
       left:12px;
+      top:12px;
+      z-index:9999;
       display:flex;
+      gap:10px;
       align-items:center;
-      gap:8px;
-      padding:8px 10px;
+      user-select:none;
+      padding:10px 14px;
       border-radius:12px;
-      background:rgba(5,8,16,.72);
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:var(--sq-shadow);
-      backdrop-filter:blur(10px);
-      transition:transform .25s ease, opacity .25s ease;
+      background:linear-gradient(135deg, rgba(20,20,28,.9), rgba(20,20,28,.6));
+      border:1px solid rgba(94,225,255,.35);
+      color:#e8f3ff;
+      box-shadow:var(--glow), var(--shadow);
+      font-size:14px;
+      animation:menuEnter .6s ease .15s both;
     }
 
-    .sq-static-menu.sq-hidden,
-    .sq-visual-card.sq-hidden{
-      opacity:0;
-      transform:translateY(-14px);
-      pointer-events:none;
-    }
-
-    .sq-static-menu img{
-      width:26px;
-      height:26px;
-      border-radius:7px;
-      object-fit:cover;
-    }
-
-    .sq-static-menu a{
-      color:#eaf4ff;
+    #staticMenu a{
+      color:#5ee1ff;
+      font-weight:800;
       text-decoration:none;
-      font-size:13px;
-      font-weight:700;
-      line-height:1;
-      text-shadow:var(--sq-glow);
       white-space:nowrap;
     }
 
-    .sq-menu-close{
-      width:22px;
-      height:22px;
-      border:0;
-      border-radius:50%;
-      color:#eaf4ff;
-      background:rgba(255,255,255,.12);
+    #staticMenu img{
+      width:24px;
+      height:24px;
+      object-fit:contain;
+      border-radius:6px;
+      flex:0 0 auto;
+    }
+
+    #closeStaticMenu{
+      color:#f55;
       cursor:pointer;
-      line-height:20px;
-      font-size:16px;
-      padding:0;
+      padding:2px 6px;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.06);
+      font-weight:800;
+      line-height:1.1;
     }
 
-    .sq-visual-card{
-      right:14px;
-      bottom:14px;
-      width:86px;
-      height:86px;
-      border-radius:18px;
-      background:rgba(5,8,16,.72);
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:var(--sq-shadow);
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      backdrop-filter:blur(10px);
-      transform:translateX(120px);
+    @keyframes menuEnter{
+      from{opacity:0; transform:translateY(-8px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    #staticSlideMenu{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      z-index:9999;
+      width:100px;
+      height:100px;
+      pointer-events:none;
       opacity:0;
-      transition:transform .38s ease, opacity .38s ease;
+      transform:translateX(140px) scale(.96);
     }
 
-    .sq-visual-card.sq-show{
-      transform:translateX(0);
-      opacity:1;
+    #staticSlideMenu a{
+      display:block;
+      width:100%;
+      height:100%;
+      pointer-events:auto;
     }
 
-    .sq-visual-card img{
+    #staticSlideMenu img{
       width:100%;
       height:100%;
       object-fit:contain;
-      padding:8px;
-      box-sizing:border-box;
+      border:0;
+      border-radius:0;
+      background:transparent;
+      box-shadow:none;
+      transition:opacity .25s ease;
+    }
+
+    .slide-in{ animation:slideIn 2s ease forwards; }
+    .slide-out{ animation:slideOut 2s ease forwards; }
+
+    @keyframes slideIn{
+      from{opacity:0; transform:translateX(140px) scale(.96)}
+      to{opacity:1; transform:translateX(0) scale(1)}
+    }
+
+    @keyframes slideOut{
+      from{opacity:1; transform:translateX(0) scale(1)}
+      to{opacity:0; transform:translateX(140px) scale(.96)}
+    }
+
+    .visual-seo-hidden{
+      display:none!important;
     }
 
     @media (max-width:560px){
-      .sq-static-menu{top:8px;left:8px;padding:7px 8px;}
-      .sq-static-menu a{font-size:12px;}
-      .sq-visual-card{right:10px;bottom:10px;width:72px;height:72px;border-radius:14px;}
+      #staticMenu{
+        left:8px;
+        top:8px;
+        max-width:calc(100vw - 16px);
+        padding:8px 10px;
+        font-size:12px;
+      }
+
+      #staticSlideMenu{
+        right:14px;
+        bottom:14px;
+        width:82px;
+        height:82px;
+      }
     }
   </style>
 </head>
@@ -167,16 +185,32 @@
     </div>
   </main>
 
-  <nav class="sq-static-menu" id="sqStaticMenu" aria-label="StaticQuasar931 menu">
+  <nav id="staticMenu" aria-label="StaticQuasar931 menu">
     <img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="StaticQuasar931">
     <a href="https://sites.google.com/view/staticquasar931/gm3z?utm_source=visualseo_adventure_capitalist" target="_blank" rel="noopener">StaticQuasar931</a>
-    <button class="sq-menu-close" id="sqMenuClose" type="button" aria-label="Hide StaticQuasar931 menu">x</button>
+    <button id="closeStaticMenu" type="button" aria-label="Hide StaticQuasar931 menu">x</button>
   </nav>
 
-  <a class="sq-visual-card" id="sqVisualCard" href="https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_adventure_capitalist" target="_blank" rel="noopener" aria-label="StaticQuasar931 link">
-    <img id="sqVisualImage" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931">
-  </a>
+  <div id="staticSlideMenu" aria-label="StaticQuasar931 visual links">
+    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_adventure_capitalist" target="_blank" rel="noopener">
+      <img id="staticSlideImage" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form">
+    </a>
+  </div>
 
+  <script>
+    (function(){
+      if (typeof console.logError !== 'function') {
+        console.logError = function(){
+          return (console.error || console.log).apply(console, arguments);
+        };
+      }
+      if (typeof console.logWarning !== 'function') {
+        console.logWarning = function(){
+          return (console.warn || console.log).apply(console, arguments);
+        };
+      }
+    })();
+  </script>
   <script src="Release/split-loader.js"></script>
   <script>
     var Module = {
@@ -220,73 +254,80 @@
   <script>
     (function(){
       var gameSlug = 'adventure_capitalist';
-      var visualItems = [
+      var staticMenu = document.getElementById('staticMenu');
+      var closeStaticMenu = document.getElementById('closeStaticMenu');
+      var staticSlideMenu = document.getElementById('staticSlideMenu');
+      var staticSlideLink = document.getElementById('staticSlideLink');
+      var staticSlideImage = document.getElementById('staticSlideImage');
+      var visualSeoVisible = true;
+      var keySequence = '';
+      var menuRestoreTimer = null;
+      var slideIndex = 0;
+      var slideItems = [
         {
           image:'https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png',
           href:'https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_' + gameSlug,
-          label:'StaticQuasar931 Google Form'
+          alt:'StaticQuasar931 Google Form'
         },
         {
           image:'https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png',
-          href:'https://discord.gg/DP2hM7RRhR?utm_source=visualseo_' + gameSlug,
-          label:'StaticQuasar931 Discord'
+          href:'https://discord.gg/DP2hM7RRhR',
+          alt:'StaticQuasar931 Discord'
         },
         {
           image:'https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG',
           href:'https://www.instagram.com/freeschoolgamepage/?utm_source=visualseo_' + gameSlug,
-          label:'StaticQuasar931 Instagram'
+          alt:'StaticQuasar931 Instagram'
         }
       ];
-      var card = document.getElementById('sqVisualCard');
-      var image = document.getElementById('sqVisualImage');
-      var menu = document.getElementById('sqStaticMenu');
-      var close = document.getElementById('sqMenuClose');
-      var visible = true;
-      var keys = [];
-      var index = 0;
-      var menuTimer = null;
 
-      function applyVisibility(){
-        menu.classList.toggle('sq-hidden', !visible);
-        card.classList.toggle('sq-hidden', !visible);
+      function setVisualSeoVisible(visible){
+        visualSeoVisible = visible;
+        staticMenu.classList.toggle('visual-seo-hidden', !visible);
+        staticSlideMenu.classList.toggle('visual-seo-hidden', !visible);
       }
 
-      function showItem(){
-        if (!visible) return;
-        var item = visualItems[index % visualItems.length];
-        image.src = item.image;
-        image.alt = item.label;
-        card.href = item.href;
-        card.setAttribute('aria-label', item.label);
-        card.classList.add('sq-show');
-        setTimeout(function(){ card.classList.remove('sq-show'); }, 5200);
-        index++;
+      function rotateSlide(){
+        if (!visualSeoVisible) return;
+        var item = slideItems[slideIndex % slideItems.length];
+        staticSlideImage.src = item.image;
+        staticSlideImage.alt = item.alt;
+        staticSlideLink.href = item.href;
+        staticSlideMenu.classList.remove('slide-out');
+        staticSlideMenu.classList.add('slide-in');
+        window.setTimeout(function(){
+          staticSlideMenu.classList.remove('slide-in');
+          staticSlideMenu.classList.add('slide-out');
+        }, 6500);
+        slideIndex++;
       }
 
-      close.addEventListener('click', function(){
-        menu.classList.add('sq-hidden');
-        clearTimeout(menuTimer);
-        menuTimer = setTimeout(function(){ if (visible) menu.classList.remove('sq-hidden'); }, 180000);
+      closeStaticMenu.addEventListener('click', function(){
+        staticMenu.classList.add('visual-seo-hidden');
+        window.clearTimeout(menuRestoreTimer);
+        menuRestoreTimer = window.setTimeout(function(){
+          if (visualSeoVisible) staticMenu.classList.remove('visual-seo-hidden');
+        }, 180000);
       });
 
       document.addEventListener('keydown', function(event){
-        keys.push(String(event.key || '').toLowerCase());
-        keys = keys.slice(-3);
-        if (keys.join('') === 'yui') {
-          visible = !visible;
-          applyVisibility();
-          keys = [];
+        keySequence = (keySequence + String(event.key || '').toLowerCase()).slice(-3);
+        if (keySequence === 'yui') {
+          setVisualSeoVisible(!visualSeoVisible);
+          keySequence = '';
         }
       });
 
       window.onbeforeunload = function(){};
-      applyVisibility();
-      setTimeout(showItem, 1800);
-      setInterval(showItem, 12500);
+      setVisualSeoVisible(true);
+      window.setTimeout(rotateSlide, 1800);
+      window.setInterval(rotateSlide, 12500);
       console.log('StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z');
     })();
   </script>
 </body>
 </html>
+
+
 
 
