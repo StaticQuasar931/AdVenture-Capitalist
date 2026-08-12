@@ -1,0 +1,292 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <base href="https://cdn.jsdelivr.net/gh/StaticQuasar931/AdVenture-Capitalist@main/">
+  <script>
+    (function(){
+      var host = window.location.hostname;
+      if (host === '127.0.0.1' || host === 'localhost') {
+        document.querySelector('base').href = './';
+      }
+    })();
+  </script>
+  <title>AdVenture Capitalist Unblocked | StaticQuasar931 Games</title>
+  <meta name="description" content="Play AdVenture Capitalist unblocked on StaticQuasar931. Run businesses, earn cash, and keep the idle capitalism simulator working at school, work, or home in a browser.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#050608">
+  <link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z/adventure-capitalist">
+  <meta property="og:title" content="AdVenture Capitalist Unblocked | StaticQuasar931 Games">
+  <meta property="og:description" content="Play AdVenture Capitalist unblocked in your browser through StaticQuasar931.">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <meta property="og:url" content="https://sites.google.com/view/staticquasar931/gm3z/adventure-capitalist">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AdVenture Capitalist Unblocked | StaticQuasar931 Games">
+  <meta name="twitter:description" content="Play AdVenture Capitalist unblocked in your browser through StaticQuasar931.">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <link rel="icon" href="logo.webp">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
+  <script>
+    (function loadGAForGoogleSites(w, d, id){
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = w.gtag || function(){ w.dataLayer.push(arguments); };
+
+      w.gtag('js', new Date());
+
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+
+      var first = d.getElementsByTagName('script')[0];
+      (first && first.parentNode ? first.parentNode : d.head || d.documentElement).insertBefore(s, first || null);
+
+      w.gtag('config', id, {
+        cookie_domain: (w.location && w.location.hostname) ? w.location.hostname : 'auto',
+        cookie_flags: 'SameSite=None;Secure',
+        send_page_view: true
+      });
+    })(window, document, 'G-5JZHSM4RCW');
+  </script>
+  <style>
+    :root{
+      --sq-brand:#5ee1ff;
+      --sq-glow:0 0 12px rgba(94,225,255,.65), 0 0 32px rgba(155,255,183,.35);
+      --sq-shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+
+    .sq-static-menu,
+    .sq-visual-card{
+      position:fixed;
+      z-index:100000;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    .sq-static-menu{
+      top:12px;
+      left:12px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      background:rgba(5,8,16,.72);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:var(--sq-shadow);
+      backdrop-filter:blur(10px);
+      transition:transform .25s ease, opacity .25s ease;
+    }
+
+    .sq-static-menu.sq-hidden,
+    .sq-visual-card.sq-hidden{
+      opacity:0;
+      transform:translateY(-14px);
+      pointer-events:none;
+    }
+
+    .sq-static-menu img{
+      width:26px;
+      height:26px;
+      border-radius:7px;
+      object-fit:cover;
+    }
+
+    .sq-static-menu a{
+      color:#eaf4ff;
+      text-decoration:none;
+      font-size:13px;
+      font-weight:700;
+      line-height:1;
+      text-shadow:var(--sq-glow);
+      white-space:nowrap;
+    }
+
+    .sq-menu-close{
+      width:22px;
+      height:22px;
+      border:0;
+      border-radius:50%;
+      color:#eaf4ff;
+      background:rgba(255,255,255,.12);
+      cursor:pointer;
+      line-height:20px;
+      font-size:16px;
+      padding:0;
+    }
+
+    .sq-visual-card{
+      right:14px;
+      bottom:14px;
+      width:86px;
+      height:86px;
+      border-radius:18px;
+      background:rgba(5,8,16,.72);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:var(--sq-shadow);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      backdrop-filter:blur(10px);
+      transform:translateX(120px);
+      opacity:0;
+      transition:transform .38s ease, opacity .38s ease;
+    }
+
+    .sq-visual-card.sq-show{
+      transform:translateX(0);
+      opacity:1;
+    }
+
+    .sq-visual-card img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:8px;
+      box-sizing:border-box;
+    }
+
+    @media (max-width:560px){
+      .sq-static-menu{top:8px;left:8px;padding:7px 8px;}
+      .sq-static-menu a{font-size:12px;}
+      .sq-visual-card{right:10px;bottom:10px;width:72px;height:72px;border-radius:14px;}
+    }
+  </style>
+</head>
+<body class="template">
+  <main class="webgl-content" aria-label="AdVenture Capitalist game player">
+    <div id="unityContainer">
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" width="960" height="600"></canvas>
+      <div id="loadingBox">
+        <div id="bgBar"><div id="progressBar"></div></div>
+        <p id="loadingInfo">Loading...</p>
+      </div>
+    </div>
+  </main>
+
+  <nav class="sq-static-menu" id="sqStaticMenu" aria-label="StaticQuasar931 menu">
+    <img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="StaticQuasar931">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z?utm_source=visualseo_adventure_capitalist" target="_blank" rel="noopener">StaticQuasar931</a>
+    <button class="sq-menu-close" id="sqMenuClose" type="button" aria-label="Hide StaticQuasar931 menu">x</button>
+  </nav>
+
+  <a class="sq-visual-card" id="sqVisualCard" href="https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_adventure_capitalist" target="_blank" rel="noopener" aria-label="StaticQuasar931 link">
+    <img id="sqVisualImage" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931">
+  </a>
+
+  <script src="Release/split-loader.js"></script>
+  <script>
+    var Module = {
+      TOTAL_MEMORY: 201326592,
+      filePackagePrefixURL: window.StaticQuasarAssetBase + 'Release/',
+      memoryInitializerPrefixURL: window.StaticQuasarAssetBase + 'Release/',
+      preRun: [],
+      postRun: [],
+      print: function(text){ console.log(text); },
+      printErr: function(text){ console.error(text); },
+      canvas: document.getElementById('canvas'),
+      progress: null,
+      setStatus: function(text){
+        if (this.progress == null) {
+          if (typeof UnityProgress !== 'function') return;
+          this.progress = new UnityProgress(canvas);
+        }
+        if (!Module.setStatus.last) Module.setStatus.last = { time: Date.now(), text: '' };
+        if (text === Module.setStatus.text) return;
+        this.progress.SetMessage(text);
+        var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+        if (m) this.progress.SetProgress(parseInt(m[2], 10) / parseInt(m[4], 10));
+        if (text === '') this.progress.Clear();
+      },
+      totalDependencies: 0,
+      monitorRunDependencies: function(left){
+        this.totalDependencies = Math.max(this.totalDependencies, left);
+        Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+      }
+    };
+    Module.setStatus('Downloading (0.0/1)');
+  </script>
+  <script src="Release/UnityConfig.js"></script>
+  <script src="Release/fileloader.js"></script>
+  <script>
+    window.StaticQuasarLoadSplitScript('Release/webgl.js', 2).catch(function(error){
+      console.error(error);
+      if (Module && typeof Module.setStatus === 'function') Module.setStatus('Code load failed. Check the console.');
+    });
+  </script>
+  <script>
+    (function(){
+      var gameSlug = 'adventure_capitalist';
+      var visualItems = [
+        {
+          image:'https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png',
+          href:'https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_' + gameSlug,
+          label:'StaticQuasar931 Google Form'
+        },
+        {
+          image:'https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png',
+          href:'https://discord.gg/DP2hM7RRhR?utm_source=visualseo_' + gameSlug,
+          label:'StaticQuasar931 Discord'
+        },
+        {
+          image:'https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG',
+          href:'https://www.instagram.com/freeschoolgamepage/?utm_source=visualseo_' + gameSlug,
+          label:'StaticQuasar931 Instagram'
+        }
+      ];
+      var card = document.getElementById('sqVisualCard');
+      var image = document.getElementById('sqVisualImage');
+      var menu = document.getElementById('sqStaticMenu');
+      var close = document.getElementById('sqMenuClose');
+      var visible = true;
+      var keys = [];
+      var index = 0;
+      var menuTimer = null;
+
+      function applyVisibility(){
+        menu.classList.toggle('sq-hidden', !visible);
+        card.classList.toggle('sq-hidden', !visible);
+      }
+
+      function showItem(){
+        if (!visible) return;
+        var item = visualItems[index % visualItems.length];
+        image.src = item.image;
+        image.alt = item.label;
+        card.href = item.href;
+        card.setAttribute('aria-label', item.label);
+        card.classList.add('sq-show');
+        setTimeout(function(){ card.classList.remove('sq-show'); }, 5200);
+        index++;
+      }
+
+      close.addEventListener('click', function(){
+        menu.classList.add('sq-hidden');
+        clearTimeout(menuTimer);
+        menuTimer = setTimeout(function(){ if (visible) menu.classList.remove('sq-hidden'); }, 180000);
+      });
+
+      document.addEventListener('keydown', function(event){
+        keys.push(String(event.key || '').toLowerCase());
+        keys = keys.slice(-3);
+        if (keys.join('') === 'yui') {
+          visible = !visible;
+          applyVisibility();
+          keys = [];
+        }
+      });
+
+      window.onbeforeunload = function(){};
+      applyVisibility();
+      setTimeout(showItem, 1800);
+      setInterval(showItem, 12500);
+      console.log('StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z');
+    })();
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,67 @@
+﻿html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #050608;
+  color: #eaf4ff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body.template {
+  min-height: 100vh;
+}
+
+.webgl-content,
+#unityContainer,
+#canvas {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: #050608;
+}
+
+#canvas {
+  display: block;
+  outline: none;
+}
+
+#loadingBox {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: min(360px, 72vw);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+#bgBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#progressBar {
+  width: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #5ee1ff, #9bffb7);
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(94,225,255,.35);
+}
+
+#loadingInfo {
+  margin: 12px 0 0;
+  color: rgba(234,244,255,.82);
+  font-size: 13px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
